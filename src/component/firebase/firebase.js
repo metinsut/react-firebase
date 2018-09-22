@@ -3,7 +3,7 @@ import { compose } from 'redux';
 import { connect } from "react-redux";
 import { firestoreConnect } from "react-redux-firebase";
 
-class Firebase extends Component {
+class FirebaseComponent extends Component {
 
     render() {
         const { users } = this.props;
@@ -32,4 +32,4 @@ const mapStateToProps = state => {
 export default compose(
     firestoreConnect(['users']),
     connect(mapStateToProps)
-)(Firebase)
+)(FirebaseComponent)
