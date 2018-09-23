@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { Section, User } from "./homeStyle";
+import { Section } from "./homeStyle";
+import { P } from "../../styles/text";
 
 class HomeComponent extends Component {
     render() {
         return (
             <Section>
-                <User>Test</User>
+                <P dark>Home</P>
             </Section>
         )
     }

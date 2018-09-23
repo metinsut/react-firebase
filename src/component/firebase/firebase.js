@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { compose } from 'redux';
 import { connect } from "react-redux";
 import { firestoreConnect } from "react-redux-firebase";
+import { P } from "../../styles/text";
 
 class FirebaseComponent extends Component {
 
@@ -12,9 +13,9 @@ class FirebaseComponent extends Component {
                 {
                     users && [...users].map((item, i) => (
                         <ul key={i}>
-                            <li>{item.name}</li>
-                            <li>{item.Age}</li>
-                            <li>{item.City}</li>
+                            <li><P dark>{item.name}</P></li>
+                            <li><P dark>{item.Age}</P></li>
+                            <li><P dark>{item.City}</P></li>
                         </ul>
                     ))
                 }

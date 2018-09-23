@@ -2,7 +2,7 @@ import thunk from "redux-thunk";
 import { applyMiddleware, createStore, compose, combineReducers } from "redux";
 import logger from 'redux-logger';
 import { reactReduxFirebase, firebaseReducer, getFirebase } from 'react-redux-firebase';
-import { reduxFirestore, firestoreReducer } from 'redux-firestore';
+import { reduxFirestore, firestoreReducer, getFirestore } from 'redux-firestore';
 import 'firebase/firestore';
 import firebase from 'firebase';
 
@@ -36,7 +36,7 @@ const reducers = combineReducers({
     firestore: firestoreReducer
 });
 
-const middleware = [thunk.withExtraArgument(getFirebase)];
+const middleware = [thunk.withExtraArgument({ getFirebase, getFirestore })];
 
 const config = applyMiddleware(...middleware, logger);
 

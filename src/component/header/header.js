@@ -1,11 +1,20 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
+import { withFirebase } from "react-redux-firebase";
 import { Header, HeaderLeft, HeaderMid, HeaderRight, StyledLink, Button } from "./headerStyle";
 import { P } from "../../styles/text";
 import { HOME, FIREBASE, LOGIN, SIGNUP } from "../../constant/routesPath";
 
 class HeaderComponent extends Component {
+
+    logOut = () => {
+        this.props.firebase.logout();
+        this.props.history.push("/");
+    }
+
     render() {
+        let { auth } = this.props;
+        const isLogin = auth.isLoaded && !auth.isEmpty;
         return (
             <Header>
                 <HeaderLeft>
@@ -16,23 +25,39 @@ class HeaderComponent extends Component {
                     <StyledLink to={FIREBASE}><P>Firebase</P></StyledLink>
                 </HeaderMid>
                 <HeaderRight>
-                    <StyledLink
-                        to={
-                            this.props.location
-                                .pathname ===
-                                "/"
-                                ? HOME + LOGIN
-                                : this.props
-                                    .location
-                                    .pathname +
-                                LOGIN
-                        }><Button primary>Login</Button></StyledLink>
-                    <StyledLink to={SIGNUP}><Button second>Sign Up</Button></StyledLink>
+                    {isLogin === true ?
+                        <Fragment>
+                            <P>{auth.email}</P>
+                            <Button onClick={this.logOut} second>Logout</Button>
+                        </Fragment>
+                        :
+                        <Fragment >
+                            <StyledLink
+                                to={
+                                    this.props.location
+                                        .pathname ===
+                                        "/"
+                                        ? HOME + LOGIN
+                                        : this.props
+                                            .location
+                                            .pathname +
+                                        LOGIN
+                                }><Button primary>Login</Button></StyledLink>
+                            <StyledLink to={SIGNUP}><Button second>Sign Up</Button></StyledLink>
+                        </Fragment>
+                    }
                 </HeaderRight>
             </Header>
         )
     }
 }
 
-export default connect()(HeaderComponent);
+const mapStateToProps = state => {
+    return {
+        auth: state.firebase.auth,
+        fire: state.firebase
+    }
+}
+
+export default withFirebase(connect(mapStateToProps)(HeaderComponent));
 
