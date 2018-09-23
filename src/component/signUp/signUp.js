@@ -50,7 +50,7 @@ class LoginComponent extends Component {
                     <ExitButton onClick={this.run}><P>EXIT</P></ExitButton>
                     <LoginWrapper ref={this.loginRef}>
                         <FormRoot onSubmit={this.sendRegisterData}>
-                            <FormTitle><H2 dark>Login Form</H2></FormTitle>
+                            <FormTitle><H2 dark>Register Form</H2></FormTitle>
                             <FormBlock>
                                 <FormItem>
                                     <InputBlock>

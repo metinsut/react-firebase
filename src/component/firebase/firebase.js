@@ -2,20 +2,21 @@ import React, { Component } from 'react';
 import { compose } from 'redux';
 import { connect } from "react-redux";
 import { firestoreConnect } from "react-redux-firebase";
-import { P } from "../../styles/text";
+import { P,H2 } from "../../styles/text";
 
 class FirebaseComponent extends Component {
 
     render() {
-        const { users } = this.props;
+        const { detail } = this.props;
         return (
             <div>
                 {
-                    users && [...users].map((item, i) => (
+                    detail && [...detail].map((item, i) => (
                         <ul key={i}>
-                            <li><P dark>{item.name}</P></li>
-                            <li><P dark>{item.Age}</P></li>
-                            <li><P dark>{item.City}</P></li>
+                            <li><H2 dark>{item.id}</H2></li>
+                            <li><P dark>{item.color}</P></li>
+                            <li><P dark>{item.size}</P></li>
+                            <li><P dark>{item.boolen ? "true" : "false"}</P></li>
                         </ul>
                     ))
                 }
@@ -26,11 +27,11 @@ class FirebaseComponent extends Component {
 
 const mapStateToProps = state => {
     return {
-        users: state.firestore.ordered.users ? state.firestore.ordered.users : null
+        detail: state.firestore.ordered.detail ? state.firestore.ordered.detail : null
     }
 }
 
 export default compose(
-    firestoreConnect(['users']),
+    firestoreConnect(['detail']),
     connect(mapStateToProps)
 )(FirebaseComponent)

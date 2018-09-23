@@ -54,8 +54,7 @@ class HeaderComponent extends Component {
 
 const mapStateToProps = state => {
     return {
-        auth: state.firebase.auth,
-        fire: state.firebase
+        auth: state.firebase.auth
     }
 }
 
