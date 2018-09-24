@@ -4,6 +4,7 @@ import { ModalRoot, LoginRoot, LoginWrapper, ExitButton } from "../../styles/mod
 import { H2, P } from "../../styles/text";
 import { FormRoot, FormTitle, FormBlock, FormItem, InputBlock, InputItem, InputName, Input, Submit } from "../../styles/form";
 import { login_user } from "./loginAction";
+import SocialBlock from "../socailBlock/socialBlock";
 
 class LoginComponent extends Component {
 
@@ -34,10 +35,10 @@ class LoginComponent extends Component {
     sendLoginData = (event) => {
         event.preventDefault();
         const data = {
-            email:event.target.email.value,
-            password:event.target.password.value,
+            email: event.target.email.value,
+            password: event.target.password.value,
         }
-        this.props.dispatch(login_user(data,() => {
+        this.props.dispatch(login_user(data, () => {
             this.props.history.goBack()
         }));
     }
@@ -72,6 +73,8 @@ class LoginComponent extends Component {
                                 </FormItem>
                             </FormBlock>
                         </FormRoot>
+                        <hr />
+                        <SocialBlock />
                     </LoginWrapper>
                 </LoginRoot>
             </ModalRoot>

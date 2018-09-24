@@ -18,16 +18,16 @@ class HeaderComponent extends Component {
         return (
             <Header>
                 <HeaderLeft>
-                    <StyledLink to={HOME}><P>FireStore Test</P></StyledLink>
+                    <StyledLink to={HOME}><P color="white">FireStore Test</P></StyledLink>
                 </HeaderLeft>
                 <HeaderMid>
-                    <StyledLink to={HOME}><P>Home</P></StyledLink>
-                    <StyledLink to={FIREBASE}><P>Firebase</P></StyledLink>
+                    <StyledLink to={HOME}><P color="white">Home</P></StyledLink>
+                    <StyledLink to={FIREBASE}><P color="white">Firebase</P></StyledLink>
                 </HeaderMid>
                 <HeaderRight>
                     {isLogin === true ?
                         <Fragment>
-                            <P>{auth.email}</P>
+                            <P color="white">{auth.email}</P>
                             <Button onClick={this.logOut} second>Logout</Button>
                         </Fragment>
                         :
