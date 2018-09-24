@@ -4,6 +4,7 @@ import { ModalRoot, LoginRoot, LoginWrapper, ExitButton } from "../../styles/mod
 import { H2, P } from "../../styles/text";
 import { FormRoot, FormTitle, FormBlock, FormItem, InputBlock, InputItem, InputName, Input, Submit } from "../../styles/form";
 import { signUp_user } from "./signUpAction";
+import SocialBlock from "../socailBlock/socialBlock";
 
 class LoginComponent extends Component {
 
@@ -47,14 +48,14 @@ class LoginComponent extends Component {
         return (
             <ModalRoot>
                 <LoginRoot>
-                    <ExitButton onClick={this.run}><P>EXIT</P></ExitButton>
+                    <ExitButton onClick={this.run}><P color="white">EXIT</P></ExitButton>
                     <LoginWrapper ref={this.loginRef}>
                         <FormRoot onSubmit={this.sendRegisterData}>
                             <FormTitle><H2 dark>Register Form</H2></FormTitle>
                             <FormBlock>
                                 <FormItem>
                                     <InputBlock>
-                                        <InputName><P dark>User Name</P></InputName>
+                                        <InputName><P>User Name</P></InputName>
                                         <InputItem>
                                             <Input name="username"></Input>
                                         </InputItem>
@@ -81,6 +82,8 @@ class LoginComponent extends Component {
                                 </FormItem>
                             </FormBlock>
                         </FormRoot>
+                        <hr/>
+                        <SocialBlock />
                     </LoginWrapper>
                 </LoginRoot>
             </ModalRoot>

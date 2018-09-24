@@ -7,4 +7,5 @@ export const SocailBlock = styled.section`
 export const Social = styled.section`
   background-color:${props => props.bc ? `${props.bc}` : "transparent"};
   border-radius:4px;
+  cursor:pointer;
 `;

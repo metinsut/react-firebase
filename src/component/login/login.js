@@ -47,7 +47,7 @@ class LoginComponent extends Component {
         return (
             <ModalRoot>
                 <LoginRoot>
-                    <ExitButton onClick={this.run}><P>EXIT</P></ExitButton>
+                    <ExitButton onClick={this.run}><P color="white">EXIT</P></ExitButton>
                     <LoginWrapper ref={this.loginRef}>
                         <FormRoot onSubmit={this.sendLoginData}>
                             <FormTitle><H2 dark>Login Form</H2></FormTitle>
