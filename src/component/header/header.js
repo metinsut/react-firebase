@@ -27,7 +27,7 @@ class HeaderComponent extends Component {
                 <HeaderRight>
                     {isLogin === true ?
                         <Fragment>
-                            <P color="white">{auth.email}</P>
+                            <P color="white">{auth.displayName}</P>
                             <Button onClick={this.logOut} second>Logout</Button>
                         </Fragment>
                         :
