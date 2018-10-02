@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { compose } from 'redux';
 import { connect } from "react-redux";
 import { firestoreConnect } from "react-redux-firebase";
-import { P,H2 } from "../../styles/text";
+import { P, H2 } from "../../styles/text";
 
 class FirebaseComponent extends Component {
 

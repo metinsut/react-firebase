@@ -74,7 +74,7 @@ class LoginComponent extends Component {
                             </FormBlock>
                         </FormRoot>
                         <hr />
-                        <SocialBlock history={this.props.history}/>
+                        <SocialBlock history={this.props.history} />
                     </LoginWrapper>
                 </LoginRoot>
             </ModalRoot>

@@ -7,13 +7,25 @@ import Firebase from "./component/firebase/firebase";
 import Login from "./component/login/login";
 import signUp from './component/signUp/signUp.js';
 import { ALLPAGES, HOME, FIREBASE, LOGIN, SIGNUP } from "./constant/routesPath";
+import { createGlobalStyle } from "styled-components";
 
+const GlobalStyle = createGlobalStyle`
+  * {
+    padding:0;
+    margin:0;
+    box-sizing:border-box;
+  }
+  ul {
+    list-style: none;
+  }
+`
 
 class App extends Component {
   render() {
     return (
       <Fragment>
-        <HeaderComponent {...this.props}/>
+        <GlobalStyle />
+        <HeaderComponent {...this.props} />
         <Switch>
           <Route exact path={HOME} component={Home} />
           <Route path={FIREBASE} component={Firebase} />
